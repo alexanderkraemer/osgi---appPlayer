@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="osgi-main-1.0.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="swt6.osgi.AppActivator" bundleSymbolicName="swt6.osgi-main" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Import-Package" value="javafx.*,swt6.osgi.app;version=&quot;[1.0,2.0)&quot;,org.osgi.framework;version=&quot;[1.3,2.0)&quot;,org.osgi.util.tracker;version=&quot;[1.3,2.0)&quot;" />
+          <property key="Bundle-Name" value="osgi-main" />
+          <property key="Include-Resource" value="log4j.properties=$MODULE_DIR$/src/main/resources/log4j.properties,swt6/osgi/app/facebook/line.png=$MODULE_DIR$/src/main/resources/swt6/osgi/app/facebook/line.png,swt6/osgi/app/messages/circle.png=$MODULE_DIR$/src/main/resources/swt6/osgi/app/messages/circle.png,swt6/osgi/app/phone/rectangle.png=$MODULE_DIR$/src/main/resources/swt6/osgi/app/phone/rectangle.png" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="osgi-app" />
+    <orderEntry type="module" module-name="osgi-messages" />
+    <orderEntry type="module-library">
+      <library name="Maven: javafx:jfxrt:1.8.0_112-release">
+        <CLASSES>
+          <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/jre/lib/ext/jfxrt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.apache.felix:org.apache.felix.framework:5.6.2" level="project" />
+  </component>
+</module>

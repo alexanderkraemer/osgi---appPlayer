@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/osgi.iml" filepath="$PROJECT_DIR$/osgi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/osgi-app/osgi-app.iml" filepath="$PROJECT_DIR$/osgi-app/osgi-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/osgi-main/osgi-main.iml" filepath="$PROJECT_DIR$/osgi-main/osgi-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/osgi-messages/osgi-messages.iml" filepath="$PROJECT_DIR$/osgi-messages/osgi-messages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/osgi-phone/osgi-phone.iml" filepath="$PROJECT_DIR$/osgi-phone/osgi-phone.iml" />
+    </modules>
+  </component>
+</project>
