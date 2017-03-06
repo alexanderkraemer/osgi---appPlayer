@@ -2,11 +2,12 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Osmorc" name="OSGi">
-      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="osgi-app-1.0.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="swt6.osgi-app" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="osgi-alarm-1.0.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="swt6.osgi.app.alarm.AlarmActivator" bundleSymbolicName="swt6.osgi-alarm" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
-          <property key="Export-Package" value="swt6.osgi.app;version=&quot;1.0&quot;" />
-          <property key="Import-Package" value="javafx.*" />
-          <property key="Bundle-Name" value="osgi-app" />
+          <property key="Export-Package" value="swt6.osgi.app.alarm;version=&quot;1.0&quot;" />
+          <property key="Import-Package" value="swt6.osgi.app;version=&quot;[1.0,2.0)&quot;,javafx.*,org.osgi.framework;version=&quot;[1.3,2.0)&quot;,org.slf4j.*" />
+          <property key="Bundle-Name" value="osgi-alarm" />
+          <property key="Include-Resource" value="swt6/osgi/app/alarm/alarm_logo.png=$MODULE_DIR$/src/main/resources/swt6/osgi/app/alarm/alarm_logo.png" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -19,11 +20,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="osgi-app" />
     <orderEntry type="module-library">
       <library name="Maven: javafx:jfxrt:1.8.0_112-release">
         <CLASSES>

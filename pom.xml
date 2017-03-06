@@ -25,6 +25,7 @@
         <module>osgi-app</module>
         <module>osgi-phone</module>
         <module>osgi-messages</module>
+        <module>osgi-alarm</module>
     </modules>
 
     <build>
@@ -77,10 +78,16 @@
             <version>${felix.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.eventadmin</artifactId>
+            <version>1.4.8</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.18</version>
         </dependency>
+
     </dependencies>
 
 </project>

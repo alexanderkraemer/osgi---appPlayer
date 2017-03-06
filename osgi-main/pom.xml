@@ -51,11 +51,5 @@
 			<version>1.0</version>
 			<type>bundle</type>
 		</dependency>
-		<dependency>
-			<groupId>swt6</groupId>
-			<artifactId>osgi-phone</artifactId>
-			<version>1.0</version>
-			<type>bundle</type>
-		</dependency>
 	</dependencies>
 </project>

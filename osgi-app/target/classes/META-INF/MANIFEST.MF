@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1488834279740
+Bnd-LastModified: 1488839642223
 Build-Jdk: 1.8.0_77
 Built-By: Alexander
 Bundle-ManifestVersion: 2

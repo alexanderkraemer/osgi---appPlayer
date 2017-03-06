@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="osgi-alarm" />
         <module name="osgi-app" />
         <module name="osgi-main" />
         <module name="osgi-messages" />
@@ -14,6 +15,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="osgi" target="1.8" />
+      <module name="osgi-alarm" target="1.8" />
       <module name="osgi-app" target="1.8" />
       <module name="osgi-main" target="1.8" />
       <module name="osgi-messages" target="1.8" />

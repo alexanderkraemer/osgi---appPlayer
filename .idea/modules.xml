@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/osgi.iml" filepath="$PROJECT_DIR$/osgi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/osgi-alarm/osgi-alarm.iml" filepath="$PROJECT_DIR$/osgi-alarm/osgi-alarm.iml" />
       <module fileurl="file://$PROJECT_DIR$/osgi-app/osgi-app.iml" filepath="$PROJECT_DIR$/osgi-app/osgi-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/osgi-main/osgi-main.iml" filepath="$PROJECT_DIR$/osgi-main/osgi-main.iml" />
       <module fileurl="file://$PROJECT_DIR$/osgi-messages/osgi-messages.iml" filepath="$PROJECT_DIR$/osgi-messages/osgi-messages.iml" />

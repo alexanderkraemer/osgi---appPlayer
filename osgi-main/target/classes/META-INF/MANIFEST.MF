@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1488834281068
+Bnd-LastModified: 1488839642992
 Build-Jdk: 1.8.0_77
 Built-By: Alexander
 Bundle-Activator: swt6.osgi.AppActivator

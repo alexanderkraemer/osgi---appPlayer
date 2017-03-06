@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1488839643414
+Bnd-LastModified: 1488839644209
 Build-Jdk: 1.8.0_77
 Built-By: Alexander
-Bundle-Activator: swt6.osgi.app.phone.PhoneActivator
+Bundle-Activator: swt6.osgi.app.alarm.AlarmActivator
 Bundle-ManifestVersion: 2
-Bundle-Name: osgi-phone
-Bundle-SymbolicName: swt6.osgi-phone
+Bundle-Name: osgi-alarm
+Bundle-SymbolicName: swt6.osgi-alarm
 Bundle-Version: 1.0.0
 Created-By: Apache Maven Bundle Plugin
-Export-Package: swt6.osgi.app.phone;version="1.0";uses:="javafx.scene,ja
+Export-Package: swt6.osgi.app.alarm;version="1.0";uses:="javafx.scene,ja
  vafx.scene.image,org.osgi.framework,swt6.osgi.app"
 Import-Package: swt6.osgi.app;version="[1.0,2.0)",javafx.collections,jav
  afx.event,javafx.geometry,javafx.scene,javafx.scene.control,javafx.scen
