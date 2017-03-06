@@ -2,16 +2,12 @@ package swt6.osgi;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -28,32 +24,16 @@ public class AppWindow {
     private VBox rootPane;
     private List<IApp> appList = new ArrayList<>();
     private IApp currentActiveApp;
-    private Canvas canvas;
     private List<EventHandler<WindowEvent>> onCloseHandlers = new ArrayList<>();
 
-    private class PaintCanvas extends Canvas {
-
-        private GraphicsContext gc;
-
-        public PaintCanvas() {
-            gc = this.getGraphicsContext2D();
-            gc.setLineWidth(2);
-
-            // register for resize events
-            // this.widthProperty().addListener(event -> redraw());
-            // this.heightProperty().addListener(event -> redraw());
-        }
-    }
 
     public AppWindow() {
         try {
             JavaFxUtils.runAndWait(() -> {
                 toolBar = new ToolBar();
-                canvas = new PaintCanvas();
-                rootPane = new VBox(toolBar, canvas);
+                toolBar.setUserData("toolbar");
+                rootPane = new VBox(toolBar);
 
-                canvas.widthProperty().bind(rootPane.widthProperty());
-                canvas.heightProperty().bind(rootPane.heightProperty());
             });
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -82,10 +62,11 @@ public class AppWindow {
         }
     }
 
-    public void close()
-    {
+    public void close() {
         try {
-            JavaFxUtils.runAndWait(() -> {if (stage != null) stage.close();});
+            JavaFxUtils.runAndWait(() -> {
+                if (stage != null) stage.close();
+            });
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -166,8 +147,20 @@ public class AppWindow {
     }
 
     private void toolbarButtonPressed(ActionEvent evt) {
-        String sfName = (String) ((Button) evt.getSource()).getUserData();
-        setCurrentApp(getAppByName(sfName));
+        String appName = (String) ((Button) evt.getSource()).getUserData();
+
+
+        // delete all nodes except the toolbar from VBOX RootPane
+        Iterator<Node> iter = rootPane.getChildren().iterator();
+        while (iter.hasNext()) {
+            Node no = iter.next();
+
+            if (!no.getUserData().equals("toolbar")) {
+                iter.remove();
+            }
+        }
+
+        setCurrentApp(getAppByName(appName));
     }
 
     private IApp getAppByName(String name) {
@@ -177,7 +170,6 @@ public class AppWindow {
                 return app;
             }
         }
-
         return null;
     }
 
@@ -194,8 +186,14 @@ public class AppWindow {
         if (app == null) {
             return;
         }
-        Button button = getToolBarButtonByName(app.getAppName());
-        if (button != null) button.requestFocus();
-    }
 
+        Button button = getToolBarButtonByName(app.getAppName());
+        if (button != null) {
+            button.requestFocus();
+        }
+
+        Node node = currentActiveApp.getNode();
+
+        rootPane.getChildren().add(node);
+    }
 }

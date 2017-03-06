@@ -25,7 +25,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="osgi-app" />
-    <orderEntry type="module" module-name="osgi-messages" />
+    <orderEntry type="library" name="Maven: swt6:osgi-phone:bundle:1.0" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: javafx:jfxrt:1.8.0_112-release">
         <CLASSES>
@@ -36,5 +36,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: org.apache.felix:org.apache.felix.framework:5.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.18" level="project" />
   </component>
 </module>
