@@ -35,9 +35,7 @@ public class AppWindow {
                 rootPane = new VBox(toolBar);
 
             });
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -57,8 +55,7 @@ public class AppWindow {
                 }
                 stage.show();
             });
-        } catch (InterruptedException e) {
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
         }
     }
 
@@ -67,9 +64,7 @@ public class AppWindow {
             JavaFxUtils.runAndWait(() -> {
                 if (stage != null) stage.close();
             });
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -77,9 +72,7 @@ public class AppWindow {
     public void addOnCloseEventHandler(EventHandler<WindowEvent> evt) {
         try {
             JavaFxUtils.runAndWait(() -> onCloseHandlers.add(evt));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -87,9 +80,7 @@ public class AppWindow {
     public void removeOnCloseEventHandler(EventHandler<WindowEvent> evt) {
         try {
             JavaFxUtils.runAndWait(() -> onCloseHandlers.remove(evt));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -107,12 +98,10 @@ public class AppWindow {
                 button.setTooltip(new Tooltip(app.getAppName()));
                 button.setGraphic(new ImageView(app.getAppIcon()));
                 button.setUserData(app.getAppName());
-                button.setOnAction(evt -> toolbarButtonPressed(evt));
+                button.setOnAction(this::toolbarButtonPressed);
                 toolBar.getItems().add(button);
             });
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -123,12 +112,7 @@ public class AppWindow {
                 String name = app.getAppName();
 
                 // remove app by name
-                Iterator<IApp> appIt = appList.iterator();
-                while (appIt.hasNext()) {
-                    if (appIt.next().getAppName().equals(name)) {
-                        appIt.remove();
-                    }
-                }
+                appList.removeIf(iApp -> iApp.getAppName().equals(name));
 
                 // remove toolbar item for shape factory.
                 toolBar.getItems().remove(getToolBarButtonByName(app.getAppName()));
@@ -139,9 +123,7 @@ public class AppWindow {
                 else
                     setCurrentApp(null);
             });
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -151,14 +133,7 @@ public class AppWindow {
 
 
         // delete all nodes except the toolbar from VBOX RootPane
-        Iterator<Node> iter = rootPane.getChildren().iterator();
-        while (iter.hasNext()) {
-            Node no = iter.next();
-
-            if (!no.getUserData().equals("toolbar")) {
-                iter.remove();
-            }
-        }
+        rootPane.getChildren().removeIf(no -> !no.getUserData().equals("toolbar"));
 
         setCurrentApp(getAppByName(appName));
     }
@@ -183,17 +158,17 @@ public class AppWindow {
 
     private void setCurrentApp(IApp app) {
         currentActiveApp = app;
-        if (app == null) {
-            return;
+        if (app != null) {
+
+            Button button = getToolBarButtonByName(app.getAppName());
+            if (button != null) {
+                button.requestFocus();
+            }
+
+            Node node = currentActiveApp.getNode();
+
+            rootPane.getChildren().add(node);
+
         }
-
-        Button button = getToolBarButtonByName(app.getAppName());
-        if (button != null) {
-            button.requestFocus();
-        }
-
-        Node node = currentActiveApp.getNode();
-
-        rootPane.getChildren().add(node);
     }
 }
